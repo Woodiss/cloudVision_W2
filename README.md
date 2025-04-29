@@ -21,9 +21,20 @@ Sourcer ensuite l'environnemt avec la commande :
 ```bash
 source venv/bin/activate  # Linux/macOS
 # OU
-venv\Scripts\activate     # Windows
+.venv\Scripts\activate     # Windows
 ```
 
+⚠️ ***Pour désactiver l'environnement virtuel :***
+```bash
+deactivate
+```
+
+Instaler les dépendances :
+
+```bash
+pip install -r requirements.txt
+
+```
 ## Lancer le projet
 
 Il suffit d'éxécuter le fichier run.py
