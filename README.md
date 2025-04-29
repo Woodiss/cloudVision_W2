@@ -19,7 +19,9 @@ python -m venv .venv
 Sourcer ensuite l'environnemt avec la commande :
 
 ```bash
-source .venv/bin/activate
+source venv/bin/activate  # Linux/macOS
+# OU
+venv\Scripts\activate     # Windows
 ```
 
 ## Lancer le projet
