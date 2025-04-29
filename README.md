@@ -6,7 +6,7 @@ La version de python utiliser est la 3.11.12 ou (3.11)
 Vous pouvez l'installer via pyenv avec la commande :
 
 ```bash
-pyenv install 3.1
+pyenv install 3.11
 ```
 
 ## Environemment virtuel
