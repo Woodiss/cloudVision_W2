@@ -42,3 +42,58 @@ Il suffit d'éxécuter le fichier run.py
 ```bash
 python run.py
 ```
+## Lancer le projet Front end
+
+Il suffit d'éxécuter la commande suivant
+
+```bash
+ cd /frontend
+```
+## Installer les packages
+
+Il suffit d'éxécuter la commande suivant
+
+```bash
+  npm install
+```
+
+## Lancer le projet Front end Vite
+
+Il suffit d'éxécuter la commande suivant
+
+```bash
+  npm run dev
+```
+## Lancer le projet sur Dockerd Desktop
+
+Il suffit d'éxécuter la commande suivant et assuer vous que votre docker desktop est ouvert
+Rassurez-vous que vous êtes à la racine du projet CloudVision_W2
+
+```bash
+docker-compose up --build
+```
+
+## Arrêter le projet sur Docker
+
+Il suffit d'éxécuter la commande suivant Attention elle supprime les conteneurs
+
+```bash
+docker-compose down
+```
+## Mettre en pause 
+
+Il suffit d'éxécuter la commande suivant
+
+```bash
+docker-compose stop
+
+```
+
+## Relancer ensuite 
+
+Il suffit d'éxécuter la commande suivant
+
+```bash
+docker-compose start
+
+```

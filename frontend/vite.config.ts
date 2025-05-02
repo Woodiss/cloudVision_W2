@@ -11,4 +11,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: "0.0.0.0",  // 👈 permet d'accéder depuis Docker
+    port: 5173        // 👈 assure qu’on reste sur le bon port
+  }
 })
