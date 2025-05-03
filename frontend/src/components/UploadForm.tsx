@@ -2,32 +2,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { error } from "console";
 
-const ACCEPTED_IMAGE_TYPES = [
-  "image/jpeg",
-  "image/jpg",
-  "image/png",
-  "image/webp",
-  "image/avif",
-];
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/avif"];
 
 // ✅ Schéma strict avec z.instanceof
 const formSchema = z.object({
-  file: z
-    .instanceof(File, { message: "Un fichier est requis" })
-    .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
-      message: "Le fichier doit être une image JPG, PNG, WebP ou AVIF",
-    }),
+  file: z.instanceof(File, { message: "Un fichier est requis" }).refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
+    message: "Le fichier doit être une image JPG, PNG, WebP ou AVIF",
+  }),
 });
 
 // ✅ Typage unifié
@@ -38,8 +24,26 @@ export default function UploadForm() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (values: UploadFormData) => {
+  const onSubmit = async (values: UploadFormData) => {
     console.log(values.file);
+    try {
+      const formData = new FormData();
+      formData.append("file", values.file);
+      console.log(formData);
+
+      const response = await fetch("http://localhost:5000/", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Echec de l'envoie des données");
+      }
+      const data = await response.json();
+      console.log("Image envoyer avec succes : ", data);
+    } catch (error) {
+      console.log("Erreur lors de l'upload : ", error);
+    }
   };
 
   return (
