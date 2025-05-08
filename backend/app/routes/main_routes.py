@@ -172,7 +172,6 @@ def home():
                     "usedIngredients": []
                 }
             ]
-            
             return jsonify(dataSpoon)
         return jsonify({"error": "No file received"}), 400
         
