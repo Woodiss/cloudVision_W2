@@ -5,7 +5,7 @@ from app.services.spoonacular_services import SpoonacularService
 # Création du blueprint
 main_routes = Blueprint('main', __name__)
 
-@main_routes.route('/', methods=["POST", "GET"])
+@main_routes.route('/', methods=["POST", "GET", "OPTIONS"])
 @cross_origin(origins="http://localhost:5173")
 def home():
     if request.method == "POST":
