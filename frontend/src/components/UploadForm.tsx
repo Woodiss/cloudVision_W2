@@ -123,7 +123,8 @@ export default function UploadForm() {
       }
 
       const data = await response.json();
-      setResponseData(data); // 💡 Ouvre la modal avec les données
+      setResponseData(data);
+      console.log(data);
     } catch (error) {
       console.log("Erreur lors de l'upload :", error);
     }
@@ -131,7 +132,7 @@ export default function UploadForm() {
 
   return (
     <>
-      <Form {...form} >
+      <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
@@ -162,28 +163,27 @@ export default function UploadForm() {
 
       {/* ✅ Modal pour afficher les données */}
       <Dialog open={!!responseData} onOpenChange={() => setResponseData(null)}>
-  <DialogContent className="min-w-screen h-screen max-w-none rounded-none flex flex-col">
-    <DialogHeader className="h-auto">
-      <DialogTitle>Données reçues</DialogTitle>
-      <DialogDescription>Le serveur a répondu avec les données suivantes :</DialogDescription>
-    </DialogHeader>
+        <DialogContent className="min-w-screen h-screen max-w-none rounded-none flex flex-col">
+          <DialogHeader className="h-auto">
+            <DialogTitle>Données reçues</DialogTitle>
+            <DialogDescription>Le serveur a répondu avec les données suivantes :</DialogDescription>
+          </DialogHeader>
 
-    <div className="flex-1 overflow-auto flex flex-wrap gap-4 bg-white p-4">
-      {responseData &&
-        responseData.map((item) => (
-          <div key={item.id} className="bg-slate-200 shadow-md rounded">
-            <img src={item.image} alt={item.title} />
-            <p>{item.title}</p>
+          <div className="flex-1 overflow-auto flex flex-wrap gap-4 bg-white p-4">
+            {responseData &&
+              responseData.map((item) => (
+                <div key={item.id} className="bg-slate-200 shadow-md rounded">
+                  <img src={item.image} alt={item.title} />
+                  <p>{item.title}</p>
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
 
-    <DialogFooter className="h-auto">
-      <Button onClick={() => setResponseData(null)}>Fermer</Button>
-    </DialogFooter>
-  </DialogContent>
-</Dialog>
-
+          <DialogFooter className="h-auto">
+            <Button onClick={() => setResponseData(null)}>Fermer</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

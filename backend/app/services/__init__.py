@@ -1,0 +1,1 @@
+from .spoonacular_services import SpoonacularService
