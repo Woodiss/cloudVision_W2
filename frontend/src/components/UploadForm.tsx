@@ -7,7 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, ListX } from "lucide-react";
 
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/avif"];
 
@@ -22,6 +22,7 @@ type ServerResponseItem = {
   id: string;
   title: string;
   image: string;
+  missedIngredientCount: number;
 };
 type ServerResponse = ServerResponseItem[];
 
@@ -56,6 +57,8 @@ export default function UploadForm() {
       }
 
       const data = await response.json();
+      console.log(data);
+      
       setResponseState({ data, isLoading: false, error: false });
     } catch (error) {
       console.error("Erreur lors de l'upload :", error);
@@ -72,7 +75,7 @@ export default function UploadForm() {
             name="file"
             render={({ field: { value, onChange, ...fieldProps } }) => (
               <FormItem>
-                <FormLabel>Fichier</FormLabel>
+                <FormLabel>File</FormLabel>
                 <FormControl>
                   <Input
                     {...fieldProps}
@@ -103,12 +106,12 @@ export default function UploadForm() {
       </Form>
       {responseState.error && <p className="text-red-500">An error occurred</p>}
 
-      {/* ✅ Modal pour afficher les données */}
+      {/* Modal pour afficher les données */}
       <Dialog open={!!responseState.data} onOpenChange={() => setResponseState({ ...responseState, data: null })}>
         <DialogContent className="min-w-screen h-screen max-w-none rounded-none flex flex-col">
           <DialogHeader className="h-auto">
-            <DialogTitle>Données reçues</DialogTitle>
-            <DialogDescription>Le serveur a répondu avec les données suivantes :</DialogDescription>
+            <DialogTitle>Data received</DialogTitle>
+            <DialogDescription>The server responded with the following data :</DialogDescription>
           </DialogHeader>
 
           <div className="flex-1 overflow-auto flex flex-wrap gap-4 bg-white p-4">
@@ -117,12 +120,16 @@ export default function UploadForm() {
                 <div key={item.id} className="bg-slate-200 shadow-md rounded">
                   <img src={item.image} alt={item.title} />
                   <p>{item.title}</p>
+                  {item.missedIngredientCount && (
+                    <p className="flex mt-4"><ListX color="red"/>{item.missedIngredientCount} Missing Ingredients</p>
+
+                  )}
                 </div>
               ))}
           </div>
 
           <DialogFooter className="h-auto">
-            <Button onClick={() => setResponseState({ ...responseState, data: null })}>Fermer</Button>
+            <Button onClick={() => setResponseState({ ...responseState, data: null })}>Close</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
