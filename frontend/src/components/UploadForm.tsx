@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { LoaderCircle, ListX } from "lucide-react";
+import ResultRecipe from "./ResultRecipe";
 
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/avif"];
 
@@ -18,17 +19,18 @@ const formSchema = z.object({
 });
 
 type UploadFormData = z.infer<typeof formSchema>;
-type ServerResponseItem = {
+export type ServerResponseItem = {
   id: string;
   title: string;
   image: string;
   missedIngredientCount: number;
 };
-type ServerResponse = ServerResponseItem[];
+
+export type ServerResponse = ServerResponseItem[];
 
 export default function UploadForm() {
   const [responseState, setResponseState] = useState<{
-    data: ServerResponse | null;
+    data: [ServerResponse, string[], string] | null;
     isLoading: boolean;
     error: boolean;
   }>({
@@ -36,6 +38,7 @@ export default function UploadForm() {
     isLoading: false,
     error: false,
   });
+
   const form = useForm<UploadFormData>({
     resolver: zodResolver(formSchema),
   });
@@ -58,7 +61,7 @@ export default function UploadForm() {
 
       const data = await response.json();
       console.log(data);
-      
+
       setResponseState({ data, isLoading: false, error: false });
     } catch (error) {
       console.error("Erreur lors de l'upload :", error);
@@ -108,25 +111,13 @@ export default function UploadForm() {
 
       {/* Modal pour afficher les données */}
       <Dialog open={!!responseState.data} onOpenChange={() => setResponseState({ ...responseState, data: null })}>
-        <DialogContent className="min-w-screen h-screen max-w-none rounded-none flex flex-col">
+        <DialogContent className="min-w-screen h-screen max-w-none rounded-none flex flex-col p-4">
           <DialogHeader className="h-auto">
             <DialogTitle>Data received</DialogTitle>
-            <DialogDescription>The server responded with the following data :</DialogDescription>
+            <DialogDescription></DialogDescription>
           </DialogHeader>
 
-          <div className="flex-1 overflow-auto flex flex-wrap gap-4 bg-white p-4">
-            {responseState.data &&
-              responseState.data.map((item) => (
-                <div key={item.id} className="bg-slate-200 shadow-md rounded">
-                  <img src={item.image} alt={item.title} />
-                  <p>{item.title}</p>
-                  {item.missedIngredientCount && (
-                    <p className="flex mt-4"><ListX color="red"/>{item.missedIngredientCount} Missing Ingredients</p>
-
-                  )}
-                </div>
-              ))}
-          </div>
+          {responseState.data && <ResultRecipe data={responseState.data} />}
 
           <DialogFooter className="h-auto">
             <Button onClick={() => setResponseState({ ...responseState, data: null })}>Close</Button>
