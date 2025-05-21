@@ -114,7 +114,6 @@ export default function UploadForm() {
         <DialogContent className="min-w-screen h-screen max-w-none rounded-none flex flex-col p-4">
           <DialogHeader className="h-auto">
             <DialogTitle>Data received</DialogTitle>
-            <DialogDescription></DialogDescription>
           </DialogHeader>
 
           {responseState.data && <ResultRecipe data={responseState.data} />}
