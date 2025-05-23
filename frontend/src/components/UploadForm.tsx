@@ -57,7 +57,7 @@ export default function UploadForm() {
       }
 
       const data = await response.json();
-      console.log(data);
+      console.log(data);  
       
       setResponseState({ data, isLoading: false, error: false });
     } catch (error) {
