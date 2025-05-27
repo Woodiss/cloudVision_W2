@@ -9,7 +9,7 @@ class YoloModelService:
         import base64
 
         # Load a model
-        model = YOLO("app/services/yolo11_fridge_complet_v0_5.pt")
+        model = YOLO("app/yolo_model/yolo11_fridge_complet_v0_5.pt")
         image = Image.open(img.stream)
         image_array = np.array(image)
 
