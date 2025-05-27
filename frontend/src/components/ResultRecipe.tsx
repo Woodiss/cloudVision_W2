@@ -20,7 +20,7 @@ export default function ResultRecipe({ data }: ResultRecipeProps) {
     <div className="overflow-auto flex bg-white flex-col sm:flex-row sm:overflow-hidden sm:grow">
       <div className="w-full border-b border-neutral-400 flex flex-col gap-4 mb-4 sm:max-w-[360px] sm:border-b-0 sm:border-r sm:pr-4 sm:pt-2 sm:overflow-y-scroll">
         <img
-          src={annotatedImage}
+          src={`data:image/jpeg;base64,${annotatedImage}`}
           alt="original image from user"
           className="w-full max-h-[30vh] object-cover rounded"
         />

@@ -56,7 +56,9 @@ export default function UploadForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Échec de l'envoi des données");
+        console.error("Erreur lors de l'upload :", response);
+        throw new Error(`Échec de l'envoi des données`);
+
       }
 
       const data = await response.json();

@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_cors import cross_origin
 from app.services.spoonacular_services import SpoonacularService
+from app.services.yolo_custom_model_services import YoloModelService
 
 # Création du blueprint
 main_routes = Blueprint('main', __name__)
@@ -13,6 +14,7 @@ def home():
         uploadedFile = request.files.get("file")
         print(uploadedFile)
         if uploadedFile:
+            imageData = YoloModelService.get_result_traitement_ia(uploadedFile)
             # data = {
             #     "message": "Bienvenue sur la page d'accueil !",
             #     "status": "success",
@@ -21,12 +23,13 @@ def home():
             ingredients = ["eggs", "strawberry", "flour", "sugar"]
 
             #Récupérer l'image avec les bouding boxes
-            annotatedImage = "https://images.unsplash.com/photo-1745179276969-d9db2e682b5d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            # annotatedImage = "https://images.unsplash.com/photo-1745179276969-d9db2e682b5d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
             try:
                 recipes = SpoonacularService.get_recipes_by_ingredients(ingredients)
-                return jsonify(recipes, ingredients, annotatedImage)
+                return jsonify(recipes, ingredients, imageData["annotated_image"])
             except Exception as e:
+                print(f"Error fetching recipes: {e}")
                 return jsonify({"error": str(e)}), 500
 
 

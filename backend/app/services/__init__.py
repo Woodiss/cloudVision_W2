@@ -1,1 +1,2 @@
 from .spoonacular_services import SpoonacularService
+from .yolo_custom_model_services import YoloModelService
