@@ -1,0 +1,290 @@
+[
+  {
+    "name": "Apple",
+    "emoji": "🍎"
+  },
+  {
+    "name": "Banana",
+    "emoji": "🍌"
+  },
+  {
+    "name": "Orange",
+    "emoji": "🍊"
+  },
+  {
+    "name": "Strawberry",
+    "emoji": "🍓"
+  },
+  {
+    "name": "Grapes",
+    "emoji": "🍇"
+  },
+  {
+    "name": "Watermelon",
+    "emoji": "🍉"
+  },
+  {
+    "name": "Pineapple",
+    "emoji": "🍍"
+  },
+  {
+    "name": "Lemon",
+    "emoji": "🍋"
+  },
+  {
+    "name": "Peach",
+    "emoji": "🍑"
+  },
+  {
+    "name": "Cherry",
+    "emoji": "🍒"
+  },
+  {
+    "name": "Blueberry",
+    "emoji": "🫐"
+  },
+  {
+    "name": "Mango",
+    "emoji": "🥭"
+  },
+  {
+    "name": "Tomato",
+    "emoji": "🍅"
+  },
+  {
+    "name": "Corn",
+    "emoji": "🌽"
+  },
+  {
+    "name": "Mushroom",
+    "emoji": "🍄"
+  },
+  {
+    "name": "Carrot",
+    "emoji": "🥕"
+  },
+  {
+    "name": "Potato",
+    "emoji": "🥔"
+  },
+  {
+    "name": "Broccoli",
+    "emoji": "🥦"
+  },
+  {
+    "name": "Cucumber",
+    "emoji": "🥒"
+  },
+  {
+    "name": "Hot Pepper",
+    "emoji": "🌶️"
+  },
+  {
+    "name": "Eggplant",
+    "emoji": "🍆"
+  },
+  {
+    "name": "Garlic",
+    "emoji": "🧄"
+  },
+  {
+    "name": "Onion",
+    "emoji": "🧅"
+  },
+  {
+    "name": "Bread",
+    "emoji": "🍞"
+  },
+  {
+    "name": "Baguette",
+    "emoji": "🥖"
+  },
+  {
+    "name": "Croissant",
+    "emoji": "🥐"
+  },
+  {
+    "name": "Cheese",
+    "emoji": "🧀"
+  },
+  {
+    "name": "Egg",
+    "emoji": "🥚"
+  },
+  {
+    "name": "Milk",
+    "emoji": "🥛"
+  },
+  {
+    "name": "Butter",
+    "emoji": "🧈"
+  },
+  {
+    "name": "Chicken",
+    "emoji": "🍗"
+  },
+  {
+    "name": "Beef",
+    "emoji": "🥩"
+  },
+  {
+    "name": "Pork",
+    "emoji": "🥩"
+  },
+  {
+    "name": "Fish",
+    "emoji": "🐟"
+  },
+  {
+    "name": "Shrimp",
+    "emoji": "🦐"
+  },
+  {
+    "name": "Crab",
+    "emoji": "🦀"
+  },
+  {
+    "name": "Lobster",
+    "emoji": "🦞"
+  },
+  {
+    "name": "Rice",
+    "emoji": "🍚"
+  },
+  {
+    "name": "Pasta",
+    "emoji": "🍝"
+  },
+  {
+    "name": "Pizza",
+    "emoji": "🍕"
+  },
+  {
+    "name": "Salt",
+    "emoji": "🧂"
+  },
+  {
+    "name": "Pepper",
+    "emoji": "🧂"
+  },
+  {
+    "name": "Sugar",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Flour",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Oil",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Vinegar",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Soy Sauce",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Basil",
+    "emoji": "🌿"
+  },
+  {
+    "name": "Parsley",
+    "emoji": "🌿"
+  },
+  {
+    "name": "Mint",
+    "emoji": "🌿"
+  },
+  {
+    "name": "Cinnamon",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Vanilla",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Yogurt",
+    "emoji": "🥣"
+  },
+  {
+    "name": "Honey",
+    "emoji": "🍯"
+  },
+  {
+    "name": "Peanut",
+    "emoji": "🥜"
+  },
+  {
+    "name": "Almond",
+    "emoji": "🥜"
+  },
+  {
+    "name": "Ice Cream",
+    "emoji": "🍨"
+  },
+  {
+    "name": "Chocolate",
+    "emoji": "🍫"
+  },
+  {
+    "name": "Cake",
+    "emoji": "🍰"
+  },
+  {
+    "name": "Cookie",
+    "emoji": "🍪"
+  },
+  {
+    "name": "Water",
+    "emoji": "💧"
+  },
+  {
+    "name": "Coffee",
+    "emoji": "☕"
+  },
+  {
+    "name": "Tea",
+    "emoji": "🍵"
+  },
+  {
+    "name": "Beer",
+    "emoji": "🍺"
+  },
+  {
+    "name": "Wine",
+    "emoji": "🍷"
+  },
+  {
+    "name": "Sushi",
+    "emoji": "🍣"
+  },
+  {
+    "name": "Hamburger",
+    "emoji": "🍔"
+  },
+  {
+    "name": "Fries",
+    "emoji": "🍟"
+  },
+  {
+    "name": "Taco",
+    "emoji": "🌮"
+  },
+  {
+    "name": "Burrito",
+    "emoji": "🌯"
+  },
+  {
+    "name": "Salad",
+    "emoji": "🥗"
+  },
+  {
+    "name": "Sandwich",
+    "emoji": "🥪"
+  }
+]
