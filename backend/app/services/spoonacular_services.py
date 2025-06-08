@@ -15,3 +15,6 @@ class SpoonacularService:
     response = requests.get(cls.BASE_URL, params=params)
     response.raise_for_status()
     return response.json()
+  
+  
+  

@@ -2,6 +2,9 @@ from flask import Blueprint, jsonify, request
 from flask_cors import cross_origin
 from app.services.spoonacular_services import SpoonacularService
 from app.services.yolo_custom_model_services import YoloModelService
+import os
+from datetime import datetime
+import base64
 
 # Création du blueprint
 main_routes = Blueprint('main', __name__)
@@ -14,17 +17,23 @@ def home():
         uploadedFile = request.files.get("file")
         print(uploadedFile)
         if uploadedFile:
-            imageData = YoloModelService.get_result_traitement_ia(uploadedFile)
-            # data = {
-            #     "message": "Bienvenue sur la page d'accueil !",
-            #     "status": "success",
-            # }
-            # Récupérer les ingrédients ici
-            ingredients = ["eggs", "strawberry", "flour", "sugar"]
+            # filename = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
+            # os.makedirs("app/uploads", exist_ok=True)
+            # save_path = os.path.join("app/uploads", filename)
+            # uploadedFile.save(save_path)
+            
+            file_bytes = uploadedFile.read()
+            base64_image = base64.b64encode(file_bytes).decode('utf-8')
+            imageData = YoloModelService.get_result_traitement_ia(base64_image)
+            # ingredients = ["eggs", "strawberry", "flour", "sugar"]
+            
+            names = imageData["names"]
+            class_ids = imageData["classes"]
+            ingredients = list({names[class_id] for class_id in class_ids})
 
             #Récupérer l'image avec les bouding boxes
             # annotatedImage = "https://images.unsplash.com/photo-1745179276969-d9db2e682b5d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+            print(imageData["names"] )
             try:
                 recipes = SpoonacularService.get_recipes_by_ingredients(ingredients)
                 return jsonify(recipes, ingredients, imageData["annotated_image"])
