@@ -59,8 +59,9 @@ def api():
                 return jsonify({
                     "image_url": "https://plus.unsplash.com/premium_photo-1700151910462-a682b2b1ef80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     "ingredients": [
-                        { "id": "salad", "name": "Salad", "emoji": "🥗" },
-                        { "id": "tomato", "name": "Tomato", "emoji": "🍅" }
+                        { "id": "beef", "name": "Beef" },
+                        { "id": "salad", "name": "Salad" },
+                        { "id": "tomato", "name": "Tomato" }
                     ]
                 })
 

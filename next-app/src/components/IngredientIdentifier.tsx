@@ -2,7 +2,7 @@
 
 import { useDropzone } from "react-dropzone";
 import { Button } from "@/components/ui/button";
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useIngredientsStore, Ingredient } from "@/stores/useIngredientsStore";
 import { ImageUp, LoaderCircle, Sparkles } from "lucide-react";
 import { toast } from "sonner";
@@ -20,6 +20,7 @@ type AnalysisState = {
 };
 
 export default function IngredientIdentifier() {
+  const [emojiMap, setEmojiMap] = useState<Record<string, string>>({});
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [selected, setSelected] = useState<Record<string, boolean>>({});
   const [analysis, setAnalysis] = useState<AnalysisState>({
@@ -29,6 +30,10 @@ export default function IngredientIdentifier() {
   });
 
   const addIngredient = useIngredientsStore((state) => state.addIngredient);
+
+  const getEmoji = (name: string) => {
+    return emojiMap[name.toLowerCase()] || "❓";
+  };
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles[0]) {
@@ -81,9 +86,32 @@ export default function IngredientIdentifier() {
     if (!analysis.data) return;
     analysis.data.ingredients
       .filter((i) => selected[i.id])
-      .forEach((i) => addIngredient({ name: i.name, emoji: i.emoji }));
+      .forEach((i) => {
+        addIngredient({ name: i.name, emoji: getEmoji(i.name) });
+      });
     toast("✅ Added with success !");
   };
+
+  useEffect(() => {
+    const loadEmojis = async () => {
+      try {
+        const res = await fetch("/data/ingredients_with_emojis.json");
+        const data: { name: string; emoji: string }[] = await res.json();
+        const map = data.reduce(
+          (acc, item) => {
+            acc[item.name.toLowerCase()] = item.emoji;
+            return acc;
+          },
+          {} as Record<string, string>,
+        );
+        setEmojiMap(map);
+      } catch (err) {
+        console.error("Failed to load emoji list", err);
+      }
+    };
+
+    loadEmojis();
+  }, []);
 
   return (
     <div className="p-4 space-y-4">
@@ -109,7 +137,6 @@ export default function IngredientIdentifier() {
         <Button
           onClick={handleAnalyze}
           className="mx-auto flex font-bold text-base"
-          // className="w-full bg-amber-500 text-white py-2 px-4 rounded hover:bg-amber-600 transition"
           disabled={analysis.loading}
         >
           <Sparkles />
@@ -137,27 +164,35 @@ export default function IngredientIdentifier() {
             className="mx-auto max-h-[300px] object-contain rounded border"
           />
 
-          <ul className="space-y-2">
-            {analysis.data.ingredients.map((ingredient) => (
-              <li key={ingredient.id} className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={selected[ingredient.id] || false}
-                  onChange={() => handleCheckboxToggle(ingredient.id)}
-                />
-                <span>
-                  {ingredient.emoji} {ingredient.name}
-                </span>
-              </li>
-            ))}
-          </ul>
+          {analysis.data.ingredients.length === 0 ? (
+            <p className="text-center text-gray-500 italic">
+              No ingredients found.
+            </p>
+          ) : (
+            <>
+              <ul className="space-y-2">
+                {analysis.data.ingredients.map((ingredient) => (
+                  <li key={ingredient.id} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selected[ingredient.id] || false}
+                      onChange={() => handleCheckboxToggle(ingredient.id)}
+                    />
+                    <span>
+                      {getEmoji(ingredient.name)} {ingredient.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
-          <Button
-            onClick={handleAdd}
-            className="w-full font-semibold text-base mt-4"
-          >
-            Add the selected ingredients
-          </Button>
+              <Button
+                onClick={handleAdd}
+                className="w-full font-semibold text-base mt-4"
+              >
+                Add the selected ingredients
+              </Button>
+            </>
+          )}
         </div>
       )}
     </div>

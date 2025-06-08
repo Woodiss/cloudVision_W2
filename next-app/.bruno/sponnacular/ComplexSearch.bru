@@ -1,0 +1,19 @@
+meta {
+  name: ComplexSearch
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://api.spoonacular.com/recipes/complexSearch?includeIngredients=egg,beef&number=5&addRecipeInformation=true&addRecipeInstructions=true&apiKey={{apiKey}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  includeIngredients: egg,beef
+  number: 5
+  addRecipeInformation: true
+  addRecipeInstructions: true
+  apiKey: {{apiKey}}
+}
