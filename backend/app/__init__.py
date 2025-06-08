@@ -5,7 +5,7 @@ def create_app():
   CORS(app, origins=["http://localhost:5173"], supports_credentials=True)
   # Importer les blueprints
   from .routes import main_routes
- 
+  
   # Enregistrer les blueprints
   app.register_blueprint(main_routes)
 
