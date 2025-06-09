@@ -1,5 +1,10 @@
+"use client";
 import IngredientList from "@/components/IngredientList";
 import IngredientSearch from "@/components/IngredientSearch";
+import IngredientIdentifier from "@/components/IngredientIdentifier";
+import { useIngredientsStore } from "@/stores/useIngredientsStore";
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 
@@ -13,9 +18,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import IngredientIdentifier from "@/components/IngredientIdentifier";
 
 export default function Recipe() {
+  const ingredients = useIngredientsStore((state) => state.ingredients);
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (ingredients.length === 0) return;
+    router.push("/recipe/result");
+  };
+
   return (
     <main className="flex flex-col h-full flex-1">
       <div className="max-w-7xl mx-auto p-6 lg:px-8">
@@ -70,6 +82,16 @@ export default function Recipe() {
           <div>
             {/* Liste des ingrédients */}
             <IngredientList />
+            {ingredients.length > 0 && (
+              <div className="flex justify-center mt-8">
+                <Button
+                  onClick={handleSearch}
+                  className="font-bold text-base px-6 py-3 h-fit lg:w-fit"
+                >
+                  Search Recipe
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
