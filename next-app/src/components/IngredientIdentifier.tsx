@@ -58,13 +58,13 @@ export default function IngredientIdentifier() {
     formData.append("file", imageFile);
 
     try {
-      const res = await fetch("http://localhost:5000/api", {
+      const res = await fetch("http://localhost:5000/", {
         method: "POST",
         body: formData,
       });
 
       const data = await res.json();
-
+      console.log(data)
       setAnalysis({ data, loading: false, error: false });
 
       setSelected(
@@ -159,7 +159,7 @@ export default function IngredientIdentifier() {
       {analysis.data && (
         <div className="space-y-4">
           <img
-            src={analysis.data.image_url}
+            src={`data:image/jpeg;base64,${analysis.data.image_url}`}
             alt="Analyzed"
             className="mx-auto max-h-[300px] object-contain rounded border"
           />
