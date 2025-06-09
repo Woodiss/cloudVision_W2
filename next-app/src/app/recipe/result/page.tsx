@@ -1,8 +1,16 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useIngredientsStore } from "@/stores/useIngredientsStore";
 import { Clock, Leaf, Utensils } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 type Recipe = {
   id: number;
@@ -91,6 +99,62 @@ export default function RecipeResult() {
                   )}{" "}
                 </div>
                 <h2 className="text-2xl font-semibold">{recipe.title}</h2>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button
+                      className="w-full h-fit font-semibold text-base mt-4"
+                      variant="outline"
+                    >
+                      Discover
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="overflow-y-scroll max-h-[90vh] sm:px-6">
+                    <DialogTitle className="text-gray-900">
+                      {recipe.title}
+                    </DialogTitle>
+
+                    {/* Conteneur image */}
+                    <div className="relative w-full h-48 rounded overflow-hidden mb-4">
+                      <Image
+                        src={recipe.image}
+                        alt={recipe.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    {/* Conteneur badges */}
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center font-semibold gap-1.5 bg-gray-100 text-gray-600 rounded text-xs py-1 px-1.5">
+                        <Clock color="#4b5563" />
+                        {recipe.readyInMinutes < 60
+                          ? `${recipe.readyInMinutes}m`
+                          : `${Math.floor(recipe.readyInMinutes / 60)}h ${recipe.readyInMinutes % 60}m`}
+                      </span>
+                      {recipe.vegan && (
+                        <span className="bg-green-200 text-green-700 rounded-full text-xs font-semibold py-1 px-2 flex items-center gap-1">
+                          <Leaf size={16} />
+                          Vegan
+                        </span>
+                      )}
+                      {recipe.servings && (
+                        <span className="rounded-full text-base font-semibold py-1 px-2 flex items-center gap-1 ml-auto">
+                          {recipe.servings}
+                          <Utensils size={20} />
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-semibold text-2xl text-gray-900">
+                      Summary
+                    </h3>
+                    <div
+                      className="prose prose-sm max-w-none text-gray-600"
+                      dangerouslySetInnerHTML={{ __html: recipe.summary }}
+                    />
+
+                    {/* <DialogDescription>{recipe.summary}</DialogDescription> */}
+                  </DialogContent>
+                </Dialog>
                 {/* <p>{recipe.summary}</p> */}
               </div>
             </li>
