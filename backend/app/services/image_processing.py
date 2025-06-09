@@ -2,10 +2,6 @@ import cv2
 import numpy as np
 
 def preprocess_image(image_np: np.ndarray, target_size=(640, 640)) -> np.ndarray:
-    """
-    Traite l'image (RGB) : BGR, débruitage, éclaircissement, normalisation, redimensionnement
-    Renvoie une image prête pour YOLO (format 416x416, float32)
-    """
 
     # Convertir RGB → BGR (OpenCV attend du BGR)
     image_bgr = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
