@@ -49,10 +49,10 @@ export default function Home() {
               <div className="flex flex-col">
                 <div className="flex items-center justify-between gap-x-4">
                   <h1 id="free" className="font-semibold text-2xl text-gray-900 leading-8">
-                    2GB App
+                    Apprentice
                   </h1>
                 </div>
-                <p className="mt-4 min-h-[3rem] text-gray-600 text-sm leading-6">Everything you need to start uploading!</p>
+                <p className="mt-4 min-h-[3rem] text-gray-600 text-sm leading-6">Everything you need to start cooking!</p>
               </div>
               <p className="mt-6 flex items-baseline gap-x-1">
                 <span className="font-bold text-4xl text-gray-900 tracking-tight">$0</span>
@@ -79,7 +79,7 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    2GB of storage *
+                    5 recipes by search
                   </li>
                   <li className="flex gap-x-3">
                     <svg
@@ -96,67 +96,29 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    7 days of audit log retention
+                    AI identification
                   </li>
-                  <li className="flex gap-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      aria-hidden="true"
-                      data-slot="icon"
-                      className="h-6 w-5 flex-none text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    Unlimited uploads and downloads
-                  </li>
-                  <li className="flex gap-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      aria-hidden="true"
-                      data-slot="icon"
-                      className="h-6 w-5 flex-none text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    (Probably) cheaper than a cup of coffee
-                  </li>
+                  
                 </ul>
-                <ul className="mt-6">
-                  <li className="flex gap-x-3 text-gray-600 text-xs">* Storage shared between all apps</li>
-                </ul>
+               
               </div>
             </div>
             <div className="flex w-full flex-col justify-between rounded-3xl bg-white p-8 shadow-lg ring-1 ring-gray-200 lg:w-1/3 xl:p-10">
               <div className="flex flex-col">
                 <div className="flex items-center justify-between gap-x-4">
                   <h1 id="paid" className="font-semibold text-2xl text-gray-900 leading-8">
-                    100GB App
+                    Head Chef
                   </h1>
                 </div>
-                <p className="mt-4 min-h-[3rem] text-gray-600 text-sm leading-6">For those with teams or more than 2 gigs of files. $10/mo</p>
+                <p className="mt-4 min-h-[3rem] text-gray-600 text-sm leading-6">For those who needs more than 3 scan a week.</p>
               </div>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="font-bold text-4xl text-gray-900 tracking-tight">$10</span>
+                <span className="font-bold text-4xl text-gray-900 tracking-tight">$8</span>
                 <span className="font-semibold text-gray-600 text-sm leading-6">/month</span>
               </p>
-              <a
-                className="mt-6 block rounded-md px-3 py-2 text-center font-semibold text-primary text-sm leading-6 ring-1 ring-red-200 ring-inset hover:ring-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-                href="/sign-in"
-              >
-                Get Started
-              </a>
+              <Button disabled className="bg-white h-fit hover:bg-white mt-6 block rounded-md px-3 py-2 text-center font-semibold text-primary text-sm leading-6 ring-1 ring-red-200 ring-inset hover:ring-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+            Comming Soon
+          </Button>
               <div className="flex grow flex-col justify-between">
                 <ul className="mt-8 space-y-3 text-gray-600 text-sm leading-6 xl:mt-10">
                   <li className="flex gap-x-3">
@@ -174,7 +136,7 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    100GB of storage
+                    Everything from Apprentice
                   </li>
                   <li className="flex gap-x-3">
                     <svg
@@ -191,7 +153,7 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    30 days of audit log retention
+                    15 recipes by search
                   </li>
                   <li className="flex gap-x-3">
                     <svg
@@ -208,24 +170,7 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    Regions
-                  </li>
-                  <li className="flex gap-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      aria-hidden="true"
-                      data-slot="icon"
-                      className="h-6 w-5 flex-none text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    Private Files
+                    Save recipes
                   </li>
                 </ul>
               </div>
@@ -234,23 +179,20 @@ export default function Home() {
               <div className="flex flex-col">
                 <div className="flex items-center justify-between gap-x-4">
                   <h1 id="paid-usage" className="font-semibold text-2xl text-gray-900 leading-8">
-                    Usage Based
+                    Head Chef
                   </h1>
                 </div>
                 <p className="mt-4 min-h-[3rem] text-gray-600 text-sm leading-6">
-                  Usage based pricing, starting at $25/mo for 250GB of included storage
+                  All features. No limits. PicToPlate at its full potential.
                 </p>
               </div>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="font-bold text-4xl text-gray-900 tracking-tight">$25</span>
+                <span className="font-bold text-4xl text-gray-900 tracking-tight">$11</span>
                 <span className="font-semibold text-gray-600 text-sm leading-6">/month</span>
               </p>
-              <a
-                className="mt-6 block rounded-md px-3 py-2 text-center font-semibold text-primary text-sm leading-6 ring-1 ring-red-200 ring-inset hover:ring-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
-                href="/sign-in"
-              >
-                Get Started
-              </a>
+              <Button disabled className="bg-white h-fit hover:bg-white mt-6 block rounded-md px-3 py-2 text-center font-semibold text-primary text-sm leading-6 ring-1 ring-red-200 ring-inset hover:ring-red-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+            Comming Soon
+          </Button>
               <div className="flex grow flex-col justify-between">
                 <ul className="mt-8 space-y-3 text-gray-600 text-sm leading-6 xl:mt-10">
                   <li className="flex gap-x-3">
@@ -268,7 +210,7 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    250GB of included storage
+                    Everything from Head Chef
                   </li>
                   <li className="flex gap-x-3">
                     <svg
@@ -285,7 +227,7 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    30 days of audit log retention
+                    Unlimited recipes by search
                   </li>
                   <li className="flex gap-x-3">
                     <svg
@@ -302,70 +244,12 @@ export default function Home() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                    $0.08 per GB over 250GB
-                  </li>
-                  <li className="flex gap-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      aria-hidden="true"
-                      data-slot="icon"
-                      className="h-6 w-5 flex-none text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    Regions
-                  </li>
-                  <li className="flex gap-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      aria-hidden="true"
-                      data-slot="icon"
-                      className="h-6 w-5 flex-none text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    Private Files
+                    Early features access
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          {/* <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse
-            recusandae eaque molestias provident asperiores, soluta quisquam
-            repellendus maiores dolores fugiat cum vero veritatis amet quod
-            accusantium quis necessitatibus modi at. Lorem, ipsum dolor sit amet
-            consectetur adipisicing elit. Esse recusandae eaque molestias
-            provident asperiores, soluta quisquam repellendus maiores dolores
-            fugiat cum vero veritatis amet quod accusantium quis necessitatibus
-            modi at. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Esse recusandae eaque molestias provident asperiores, soluta
-            quisquam repellendus maiores dolores fugiat cum vero veritatis amet
-            quod accusantium quis necessitatibus modi at. Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit. Esse recusandae eaque molestias
-            provident asperiores, soluta quisquam repellendus maiores dolores
-            fugiat cum vero veritatis amet quod accusantium quis necessitatibus
-            modi at. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Esse recusandae eaque molestias provident asperiores, soluta
-            quisquam repellendus maiores dolores fugiat cum vero veritatis amet
-            quod accusantium quis necessitatibus modi at. Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit. Esse recusandae eaque molestias
-            provident asperiores, soluta quisquam repellendus maiores dolores
-            fugiat cum vero veritatis amet quod accusantium quis necessitatibus
-            modi at.
-          </p> */}
           <p className="muted-foreground mt-6 text-center font-mono text-amber-500 text-sm leading-8">All Prices in USD</p>
         </div>
         <svg className="absolute bottom-0 w-full" viewBox="0 0 1920 76" fill="none" xmlns="http://www.w3.org/2000/svg">
