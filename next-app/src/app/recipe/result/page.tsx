@@ -77,8 +77,8 @@ export default function RecipeResult() {
                 alt={recipe.title}
                 className="rounded w-full h-40 object-cover mb-4"
               />
-              <div>
-                <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-col grow">
+                <div className="flex items-center  gap-3 mb-4">
                   <span className="flex items-center font-semibold gap-1.5 bg-gray-100 text-gray-600 rounded text-xs py-1 px-1.5">
                     {<Clock color="#4b5563" />}
                     {recipe.readyInMinutes < 60
@@ -98,11 +98,11 @@ export default function RecipeResult() {
                     </span>
                   )}{" "}
                 </div>
-                <h2 className="text-2xl font-semibold">{recipe.title}</h2>
+                <h2 className="text-2xl font-semibold mb-6">{recipe.title}</h2>
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button
-                      className="w-full h-fit font-semibold text-base mt-4"
+                      className="w-full h-fit font-semibold text-base mt-auto"
                       variant="outline"
                     >
                       Discover
