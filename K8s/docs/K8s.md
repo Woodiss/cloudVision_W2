@@ -55,7 +55,7 @@ Passer d’une simple exécution via Docker à un vrai déploiement orchestré v
  - Avant d’appliquer les fichiers de déploiement et de services Kubernetes, il est nécessaire de construire les images Docker localement à l’aide des commandes suivantes :
 
  > docker build -t flask-backend:latest ./backend
- > docker build -t react-frontend:latest ./frontend
+ > docker build -t react-frontend:latest ./next-app
 
 🖥️ Commandes utilisées :
 - Déploiement : 
