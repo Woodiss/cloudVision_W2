@@ -1,0 +1,17 @@
+meta {
+  name: searchRecipesByIngredients
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.spoonacular.com/recipes/findByIngredients?ingredients=eggs,beef&number=5&apiKey={{apiKey}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ingredients: eggs,beef
+  number: 5
+  apiKey: {{apiKey}}
+}
