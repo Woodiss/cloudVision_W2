@@ -140,8 +140,3 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
   - Choisis "Token" comme méthode d’authentification
   - Colle le token récupéré à l’étape 3
   - Clique sur "Sign In"
-
-
-------------------------------------------------------
-Auteur : Devanandhan Codandabany  
-Date : Juin 2025
