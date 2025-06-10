@@ -20,7 +20,7 @@ def home():
             file_bytes = uploadedFile.read()
             base64_image = base64.b64encode(file_bytes).decode('utf-8')
             imageData = YoloModelService.get_result_traitement_ia(base64_image)
-            # ingredients = ["eggs", "strawberry", "flour", "sugar"]
+            # ingredients = ["eggs", "Strawberries", "flour", "sugar"]
 
             names = imageData["names"]
             class_ids = imageData["classes"]

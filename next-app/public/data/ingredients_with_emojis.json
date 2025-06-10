@@ -12,7 +12,7 @@
     "emoji": "🍊"
   },
   {
-    "name": "Strawberry",
+    "name": "Strawberries",
     "emoji": "🍓"
   },
   {
@@ -286,6 +286,10 @@
   {
     "name": "Sandwich",
     "emoji": "🥪"
+  },
+  {
+    "name": "Salmon",
+    "emoji": "🐟"
   }
 ]
 
