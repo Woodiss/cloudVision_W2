@@ -58,13 +58,13 @@ export default function IngredientIdentifier() {
     formData.append("file", imageFile);
 
     try {
-      const res = await fetch("http://localhost:5000/", {
+      const res = await fetch("http://localhost:5000", {
         method: "POST",
         body: formData,
       });
 
       const data = await res.json();
-      console.log(data)
+      console.log(data);
       setAnalysis({ data, loading: false, error: false });
 
       setSelected(

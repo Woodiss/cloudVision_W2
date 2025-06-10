@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from flask_cors import cross_origin
-from app.services.spoonacular_services import SpoonacularService
 from app.services.yolo_custom_model_services import YoloModelService
 import os
 from datetime import datetime
@@ -38,7 +37,6 @@ def home():
                     }
                     for name in ingredients
                 ]
-
                 return jsonify({
                     "image_url": imageData["annotated_image"],
                     "ingredients": formatted_ingredients

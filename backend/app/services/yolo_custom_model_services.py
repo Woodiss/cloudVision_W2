@@ -62,7 +62,7 @@ class YoloModelService:
                 crop = original[y:y + h, x:x + w]
 
                 # Prédiction sur le crop
-                results = list(model.predict(source=crop, conf=0.2, save=False))
+                results = list(model.predict(source=crop, conf=0.5, save=False))
                 if not results:
                     continue
 
